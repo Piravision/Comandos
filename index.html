@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            /* Fondo de la web con imagen y superposición oscura */
+            background: url('https://cdn.streamelements.com/uploads/e0c76fe6-2793-4e15-9af1-e0add9e7d611.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Superposición oscura */
+            z-index: -1;
+        }
+
+        /* Estilos de la cabecera */
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            flex: 1;
+            text-align: left;
+        }
+
+        .section-title h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .logo-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            height: 200px;
+            width: auto;
+        }
+
+        .social-icons {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Estilos del contenido central */
+        .main-content {
+            text-align: center;
+            padding: 50px 20px;
+            /* Fondo transparente para el contenido */
+            background-color: transparent;
+            color: #fff;
+        }
+
+        /* Estilos de la tabla */
+        .commands-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-collapse: separate;
+            border-spacing: 15px 20px; /* Espacio entre columnas y filas */
+        }
+
+        .commands-table th, .commands-table td {
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente para las celdas */
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .commands-table th {
+            background-color: rgba(85, 85, 85, 0.9); /* Fondo oscuro para los encabezados */
+            color: #fff;
+            font-size: 1.2em;
+            text-align: center; /* Centrando el texto de los encabezados */
+        }
+
+        .commands-table td {
+            color: #333;
+            font-size: 1em;
+        }
+
+        /* Emoticons en la columna de Comando */
+        .command-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        /* Botones en la columna de Ejemplo */
+        .example-button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .example-button:hover {
+            background-color: #555;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center; /* Centrar elementos */
+            }
+
+            .social-icons {
+                justify-content: center; /* Centrar iconos */
+                margin-top: 10px;
+                width: 100%; /* Ocupa todo el ancho */
+            }
+
+            .logo {
+                height: 150px; /* Reducir tamaño del logo */
+            }
+
+            .commands-table th, .commands-table td {
+                padding: 10px;
+            }
+
+            .commands-table {
+                border-spacing: 10px 15px; /* Reducir espacio entre columnas y filas */
+            }
+        }
+
+        /* Ajustes adicionales para dispositivos muy pequeños */
+        @media (max-width: 480px) {
+            .logo {
+                height: 120px; /* Tamaño más pequeño del logo */
+            }
+
+            .social-icons img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .commands-table th, .commands-table td {
+                padding: 8px;
+                font-size: 0.8em;
+            }
+
+            .command-icon {
+                font-size: 0.7em; /* Reducir tamaño de los emojis */
+            }
+
+            .example-button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera -->
+    <div class="header">
+        <div class="section-title">
+            <h1>Comandos</h1> <!-- Título actualizado -->
+        </div>
+        <div class="logo-container">
+            <img src="https://cdn.streamelements.com/uploads/fa3fe2b3-134b-4288-bfef-29948befc05f.png" alt="Logo" class="logo">
+        </div>
+        <div class="social-icons">
+            <a href="https://www.twitch.tv/piravision" target="_blank">
+                <img src="https://cdn.streamelements.com/uploads/4e340b43-7b0e-4bad-81d4-197c233827c4.png" alt="Twitch">
+            </a>
+            <a href="https://kick.com/piravision" target="_blank">
+                <img src="https://cdn.streamelements.com/uploads/9e660f91-49cb-476f-b328-8a1e5d9706ae.png" alt="Kick">
+            </a>
+            <a href="https://discord.gg/7VEzeTy55R" target="_blank">
+                <img src="https://cdn.streamelements.com/uploads/e731c1a0-344f-432d-bbf8-0590844f7e25.png" alt="Discord">
+            </a>
+            <a href="https://x.com/PiraVision" target="_blank">
+                <img src="https://cdn.streamelements.com/uploads/aecdfafd-fb1e-41d7-91ff-cc7d5cb34a32.png" alt="X (Twitter)">
+            </a>
+            <a href="https://t.me/+UD7ZygM3MrlhNjg0" target="_blank">
+                <img src="https://cdn.streamelements.com/uploads/16594692-335f-470e-9beb-fd542023ec96.png" alt="Telegram">
+            </a>
+        </div>
+    </div>
+
+    <!-- Contenido Central -->
+    <div class="main-content">
+        <table class="commands-table">
+            <thead>
+                <tr>
+                    <th>Comando</th>
+                    <th>Información</th>
+                    <th>Ejemplo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas sin Ejemplo con Botones -->
+                <tr>
+                    <td><span class="command-icon">📅</span><strong>!parrilla</strong></td>
+                    <td>Para ver la programación del día.</td>
+                    <td>
+                        <a href="https://piravision.github.io/Parilla/" target="_blank" class="example-button">Ver la Parrilla</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="command-icon">🔗</span><strong>!peticion</strong></td>
+                    <td>Link a la web de Peticiones.</td>
+                    <td>
+                        <a href="https://piravision.github.io/Peticiones/" target="_blank" class="example-button">Ir a Peticiones</a>
+                    </td>
+                </tr>
+
+                <!-- Filas con Ejemplo -->
+                <tr>
+                    <td><span class="command-icon">⏰</span><strong>!ahora</strong></td>
+                    <td>Para saber lo que estás viendo en tiempo real.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><span class="command-icon">🎭</span><strong>!actor [nombre]</strong></td>
+                    <td>Busca la información en Pirawiki con tu actor solicitado.</td>
+                    <td><strong>!actor Eddie Murphy</strong></td>
+                </tr>
+                <tr>
+                    <td><span class="command-icon">🎬</span><strong>!director [nombre]</strong></td>
+                    <td>Busca la información en Pirawiki con tu director solicitado.</td>
+                    <td><strong>!director Tim Burton</strong></td>
+                </tr>
+                <tr>
+                    <td><span class="command-icon">📺</span><strong>!tv [nombre]</strong></td>
+                    <td>Busca la serie en el almacén de Pira.</td>
+                    <td><strong>!tv Dragon Ball</strong></td>
+                </tr>
+                <tr>
+                    <td><span class="command-icon">🎥</span><strong>!peli [nombre]</strong></td>
+                    <td>Busca la película en el almacén.</td>
+                    <td><strong>!peli Star Wars</strong></td>
+                </tr>
+                <tr>
+                    <td><span class="command-icon">🎮</span><strong>!game [nombre]</strong></td>
+                    <td>Busca la información en Pirawiki con tu videojuego solicitado.</td>
+                    <td><strong>!game Super Mario Bros</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
