@@ -5,28 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comandos</title>
     <style>
-        /* Estilos Generales */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            /* Fondo de la web con imagen y superposición oscura */
-            background: url('https://cdn.streamelements.com/uploads/176702d3-a685-4173-abf8-da1459be378e.PNG') no-repeat center center fixed;
+            background: url('https://cdn.streamelements.com/uploads/e0c76fe6-2793-4e15-9af1-e0add9e7d611.jpeg') no-repeat center center fixed;
             background-size: cover;
             position: relative;
         }
-
         body::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Superposición oscura */
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.6);
             z-index: -1;
         }
-
-        /* Estilos de la cabecera */
         .header {
             display: flex;
             align-items: center;
@@ -37,161 +30,94 @@
             position: relative;
             z-index: 1;
         }
+        .section-title { flex: 1; text-align: left; }
+        .section-title h1 { margin: 0; font-size: 2em; }
+        .logo-container { flex: 1; display: flex; justify-content: center; align-items: center; }
+        .logo { height: 200px; width: auto; }
+        .social-icons { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
+        .social-icons img { width: 40px; height: 40px; object-fit: contain; transition: transform 0.3s; }
+        .social-icons img:hover { transform: scale(1.1); }
 
-        .section-title {
-            flex: 1;
-            text-align: left;
-        }
-
-        .section-title h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-
-        .logo-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logo {
-            height: 200px;
-            width: auto;
-        }
-
-        .social-icons {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            transition: transform 0.3s;
-        }
-
-        .social-icons img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Estilos del contenido central */
         .main-content {
             text-align: center;
-            padding: 50px 10px;
-            /* Fondo transparente para el contenido */
+            padding: 40px 15px;
             background-color: transparent;
             color: #fff;
         }
-
-        /* Estilos de la tabla */
+        .block {
+            margin-bottom: 40px;
+        }
+        .block h2 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.6em;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+        .columns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
         .commands-table {
             width: 100%;
             max-width: 1000px;
             margin: 0 auto;
             border-collapse: separate;
-            border-spacing: 15px 15px; /* Espacio entre columnas y filas */
+            border-spacing: 6px 8px;
         }
-
         .commands-table th, .commands-table td {
-            background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente para las celdas */
-            padding: 15px;
-            border-radius: 10px;
+            background-color: rgba(255,255,255,0.9);
+            padding: 8px 10px;
+            border-radius: 8px;
             text-align: left;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
-
         .commands-table th {
-            background-color: rgba(85, 85, 85, 0.9); /* Fondo oscuro para los encabezados */
+            background-color: rgba(85,85,85,0.95);
             color: #fff;
-            font-size: 1.2em;
-            text-align: center; /* Centrando el texto de los encabezados */
-        }
-
-        .commands-table td {
-            color: #333;
             font-size: 1em;
+            text-align: center;
+        }
+        .commands-table td { 
+            color: #333; 
+            font-size: 0.9em; 
+            line-height: 1.3em;
+        }
+        /* Tablas compactas (ALERTAS) */
+        .commands-table.compact td {
+            padding: 6px 8px;
+            font-size: 0.85em;
+        }
+        .commands-table.compact th {
+            padding: 6px;
+            font-size: 0.9em;
         }
 
-        /* Emoticons en la columna de Comando */
-        .command-icon {
-            font-size: 1 em;
-            margin-right: 5px;
-        }
-
-        /* Botones en la columna de Ejemplo */
+        /* Botón */
         .example-button {
-            padding: 5px 5px;
+            padding: 4px 6px;
             background-color: #333;
             color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             text-decoration: none;
-            font-size: 0.8em;
+            font-size: 0.75em;
             transition: background-color 0.3s;
         }
+        .example-button:hover { background-color: #555; }
 
-        .example-button:hover {
-            background-color: #555;
+        @media (max-width:768px) {
+            .header { flex-direction: column; align-items: center; }
+            .social-icons { justify-content: center; margin-top: 10px; width: 100%; }
+            .logo { height: 140px; }
+            .columns { flex-direction: column; }
         }
-
-        /* Responsividad */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: center; /* Centrar elementos */
-            }
-
-            .social-icons {
-                justify-content: center; /* Centrar iconos */
-                margin-top: 10px;
-                width: 100%; /* Ocupa todo el ancho */
-            }
-
-            .logo {
-                height: 120px; /* Reducir tamaño del logo */
-            }
-
-            .commands-table th, .commands-table td {
-                padding: 5px;
-            }
-
-            .commands-table {
-                border-spacing: 10px 10px; /* Reducir espacio entre columnas y filas */
-            }
-             .example-button {
-                padding: 5px 1px;
-                font-size: 0.8em;
-        }
-
-        /* Ajustes adicionales para dispositivos muy pequeños */
-        @media (max-width: 480px) {
-            .logo {
-                height: 100px; /* Tamaño más pequeño del logo */
-            }
-
-            .social-icons img {
-                width: 35px;
-                height: 35px;
-            }
-
-            .commands-table th, .commands-table td {
-                padding: 5px;
-                font-size: 0.8em;
-            }
-
-            .command-icon {
-                font-size: 0.7em; /* Reducir tamaño de los emojis */
-            }
-
-            .example-button {
-                padding: 5px 1px;
-                font-size: 0.7em;
-            }
+        @media (max-width:480px) {
+            .logo { height: 120px; }
+            .social-icons img { width: 35px; height: 35px; }
+            .commands-table th, .commands-table td { padding: 6px; font-size: 0.8em; }
+            .example-button { padding: 3px 5px; font-size: 0.7em; }
         }
     </style>
 </head>
@@ -199,90 +125,148 @@
     <!-- Cabecera -->
     <div class="header">
         <div class="section-title">
-            <h1>Comandos</h1> <!-- Título actualizado -->
+            <h1>Comandos</h1>
         </div>
         <div class="logo-container">
             <img src="https://cdn.streamelements.com/uploads/fa3fe2b3-134b-4288-bfef-29948befc05f.png" alt="Logo" class="logo">
         </div>
         <div class="social-icons">
-            <a href="https://www.twitch.tv/piravision" target="_blank">
-                <img src="https://cdn.streamelements.com/uploads/4e340b43-7b0e-4bad-81d4-197c233827c4.png" alt="Twitch">
-            </a>
-            <a href="https://kick.com/piravision" target="_blank">
-                <img src="https://cdn.streamelements.com/uploads/9e660f91-49cb-476f-b328-8a1e5d9706ae.png" alt="Kick">
-            </a>
-            <a href="https://discord.gg/7VEzeTy55R" target="_blank">
-                <img src="https://cdn.streamelements.com/uploads/e731c1a0-344f-432d-bbf8-0590844f7e25.png" alt="Discord">
-            </a>
-            <a href="https://x.com/PiraVision" target="_blank">
-                <img src="https://cdn.streamelements.com/uploads/aecdfafd-fb1e-41d7-91ff-cc7d5cb34a32.png" alt="X (Twitter)">
-            </a>
-            <a href="https://t.me/+UD7ZygM3MrlhNjg0" target="_blank">
-                <img src="https://cdn.streamelements.com/uploads/16594692-335f-470e-9beb-fd542023ec96.png" alt="Telegram">
-            </a>
+            <a href="https://www.twitch.tv/piravision" target="_blank"><img src="https://cdn.streamelements.com/uploads/4e340b43-7b0e-4bad-81d4-197c233827c4.png" alt="Twitch"></a>
+            <a href="https://kick.com/piravision" target="_blank"><img src="https://cdn.streamelements.com/uploads/9e660f91-49cb-476f-b328-8a1e5d9706ae.png" alt="Kick"></a>
+            <a href="https://discord.gg/7VEzeTy55R" target="_blank"><img src="https://cdn.streamelements.com/uploads/e731c1a0-344f-432d-bbf8-0590844f7e25.png" alt="Discord"></a>
+            <a href="https://x.com/PiraVision" target="_blank"><img src="https://cdn.streamelements.com/uploads/aecdfafd-fb1e-41d7-91ff-cc7d5cb34a32.png" alt="X (Twitter)"></a>
+            <a href="https://t.me/+UD7ZygM3MrlhNjg0" target="_blank"><img src="https://cdn.streamelements.com/uploads/16594692-335f-470e-9beb-fd542023ec96.png" alt="Telegram"></a>
         </div>
     </div>
 
     <!-- Contenido Central -->
     <div class="main-content">
-        <table class="commands-table">
-            <thead>
-                <tr>
-                    <th>Comando</th>
-                    <th>Información</th>
-                    <th>Ejemplo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Filas sin Ejemplo con Botones -->
-                <tr>
-                    <td><span class="command-icon">📅</span><strong>!parrilla</strong></td>
-                    <td>Para ver la programación del día.</td>
-                    <td>
-                        <a href="https://piravision.github.io/Parilla/" target="_blank" class="example-button">Ver la Parrilla</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="command-icon">🔗</span><strong>!peticion</strong></td>
-                    <td>Link a la web de Peticiones.</td>
-                    <td>
-                        <a href="https://piravision.github.io/Peticiones/" target="_blank" class="example-button">Ir a Peticiones</a>
-                    </td>
-                </tr>
 
-                <!-- Filas con Ejemplo -->
-                <tr>
-                    <td><span class="command-icon">⏰</span><strong>!ahora</strong></td>
-                    <td>Para saber lo que estás viendo en tiempo real.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="command-icon">🎭</span><strong>!actor [nombre]</strong></td>
-                    <td>Busca la información en Pirawiki con tu actor solicitado.</td>
-                    <td><strong>!actor Eddie Murphy</strong></td>
-                </tr>
-                <tr>
-                    <td><span class="command-icon">🎬</span><strong>!director [nombre]</strong></td>
-                    <td>Busca la información en Pirawiki con tu director solicitado.</td>
-                    <td><strong>!director Tim Burton</strong></td>
-                </tr>
-                <tr>
-                    <td><span class="command-icon">📺</span><strong>!tv [nombre]</strong></td>
-                    <td>Busca la serie en el almacén de Pira.</td>
-                    <td><strong>!tv Dragon Ball</strong></td>
-                </tr>
-                <tr>
-                    <td><span class="command-icon">🎥</span><strong>!peli [nombre]</strong></td>
-                    <td>Busca la película en el almacén.</td>
-                    <td><strong>!peli Star Wars</strong></td>
-                </tr>
-                <tr>
-                    <td><span class="command-icon">🎮</span><strong>!game [nombre]</strong></td>
-                    <td>Busca la información en Pirawiki con tu videojuego solicitado.</td>
-                    <td><strong>!game Super Mario Bros</strong></td>
-                </tr>
-            </tbody>
-        </table>
+        
+		<!-- PROGRAMACIÓN -->
+        <div class="block">
+            <h2>PROGRAMACIÓN</h2>
+            <table class="commands-table">
+                <thead><tr><th>Comando</th><th>Información</th><th>Ejemplo</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>!parrilla</strong></td><td>Consulta la <strong>programación</strong> 📅</td><td><a href="https://piravision.github.io/Parilla/" target="_blank" class="example-button">Ver la Parrilla</a></td></tr>
+                    <tr><td><strong>!ahora</strong></td><td>Lo que ves en <strong>tiempo real</strong> ⏰</td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- VOTACIONES -->
+        <div class="block">
+            <h2>VOTACIONES</h2>
+            <table class="commands-table">
+                <thead><tr><th>Comando</th><th>Información</th><th>Ejemplo</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>!voto [1-10]</strong></td><td>Valora las <strong>películas</strong> ⭐</td><td><em>!voto 10</em></td></tr>
+                </tbody>
+            </table>
+        </div>
+		
+		
+		
+		<!-- TRIVIAL -->
+        <div class="block">
+            <h2>TRIVIAL</h2>
+            <table class="commands-table">
+                <thead><tr><th>Comando</th><th>Información</th><th>Ejemplo</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>!a</strong></td><td>Responde con la opción A 🅰️</td><td></td></tr>
+                    <tr><td><strong>!b</strong></td><td>Responde con la opción B 🅱️</td><td></td></tr>
+                    <tr><td><strong>!c</strong></td><td>Responde con la opción C 🇨</td><td></td></tr>
+                    <tr><td><strong>!pregunta</strong></td><td>Consulta la <strong>pregunta activa</strong> ❓</td><td></td></tr>
+                    <tr><td><strong>!top</strong></td><td>Consulta el <strong>ranking</strong> de usuarios 🏆</td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CROMOS -->
+        <div class="block">
+            <h2>CROMOS</h2>
+            <table class="commands-table">
+                <thead><tr><th>Comando</th><th>Información</th><th>Ejemplo</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>!album</strong></td><td>Consulta tu <strong>álbum</strong> 📖</td><td></td></tr>
+                    <tr><td><strong>!abrirsobre</strong></td><td>Abre un <strong>sobre</strong> de cromos ✉️</td><td></td></tr>
+                    <tr><td><strong>!intercambiar</strong></td><td>Intercambia cromos 🔄</td><td><em>!intercambiar ofrezco 18 a cambio de 526 a @Piravision</em></td></tr>
+                    <tr><td><strong>!aceptar</strong></td><td>Acepta la <strong>oferta</strong> ✅</td><td><em>!aceptar Piravision</em></td></tr>
+                    <tr><td><strong>!rechazar</strong></td><td>Rechaza la <strong>oferta</strong> ❌</td><td><em>!rechazar Piravision</em></td></tr>
+                </tbody>
+            </table>
+        </div>
+		
+		
+		<!-- ALERTAS -->
+        <div class="block">
+            <h2>ALERTAS</h2>
+            <div class="columns">
+                <!-- Columna 1 -->
+                <table class="commands-table compact">
+                    <thead><tr><th>Comando</th><th>Información</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>!cajon</strong></td><td>Para esos momentos <strong>picantes</strong> 🔥</td></tr>
+                        <tr><td><strong>!corred</strong></td><td>Cuando necesites correr 🏃</td></tr>
+                        <tr><td><strong>!danko</strong></td><td>Si la cosa se va de madre ⚠️</td></tr>
+                        <tr><td><strong>!paco</strong></td><td>Nos preocupamos por <strong>Paco</strong> 👨</td></tr>
+                        <tr><td><strong>!merche</strong></td><td>Momentos románticos 💞</td></tr>
+                        <tr><td><strong>!pocho</strong></td><td>El mejor día del canal 📅</td></tr>
+                        <tr><td><strong>!imbesil</strong></td><td>Si jugaste con <em>León</em> 🤪</td></tr>
+                        <tr><td><strong>!cena</strong></td><td>Pide tu <strong>cena</strong> 🍽️</td></tr>
+                        <tr><td><strong>!baila</strong></td><td>Saca los prohibidos 💃</td></tr>
+                        <tr><td><strong>!volo</strong></td><td>Cuando algo tiene que <strong>volar</strong> 🕊️</td></tr>
+                        <tr><td><strong>!tonto</strong></td><td>No es muy difícil, ¿no? 🙃</td></tr>
+                        <tr><td><strong>!nintendo</strong></td><td>Haz caso al <strong>padre</strong> 🎮</td></tr>
+                    </tbody>
+                </table>
+                <!-- Columna 2 -->
+                <table class="commands-table compact">
+                    <thead><tr><th>Comando</th><th>Información</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>!boom</strong></td><td>La <strong>abuela explosiva</strong> 💥</td></tr>
+                        <tr><td><strong>!gracias</strong></td><td>Dar las gracias 🙏</td></tr>
+                        <tr><td><strong>!conan</strong></td><td>Al chat no se la cuelas ⚔️</td></tr>
+                        <tr><td><strong>!cerillas</strong></td><td>Chicho reparte <strong>cerillas</strong> 🔥</td></tr>
+                        <tr><td><strong>!cine</strong></td><td>Cuando la <strong>película</strong> te encante 🎬</td></tr>
+                        <tr><td><strong>!vacile</strong></td><td>Un vacile tonto 😏</td></tr>
+                        <tr><td><strong>!dave</strong></td><td>Cuando necesites <strong>razonar</strong> 🧠</td></tr>
+                        <tr><td><strong>!compa</strong></td><td>Cuando sabes que no le queda mucho 👋</td></tr>
+                        <tr><td><strong>!morision</strong></td><td>Momento de doblar servilletas 🪦</td></tr>
+                        <tr><td><strong>!droja</strong></td><td>Lo usaréis <strong>mucho</strong> 💊</td></tr>
+                        <tr><td><strong>!misterio</strong></td><td>Cuando sea muy misterioso 🕵️</td></tr>
+                        <tr><td><strong>!caida</strong></td><td>Que se va a <strong>caer</strong> 📉</td></tr>
+                        <tr><td><strong>!error</strong></td><td>Para meterte con el <strong>PiraBot</strong> ❌</td></tr>
+                        <tr><td><strong>!cambio</strong></td><td>Alerta de <strong>moderadores</strong> 🔄</td></tr>
+                        <tr><td><strong>!cell</strong></td><td>Siente el <strong>terror</strong> 📱</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        
+
+        
+
+        <!-- WIKI -->
+        <div class="block">
+            <h2>WIKI</h2>
+            <table class="commands-table">
+                <thead><tr><th>Comando</th><th>Información</th><th>Ejemplo</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>!actor [nombre]</strong></td><td>Busca info de un <strong>actor</strong> 🎭</td><td><em>!actor Eddie Murphy</em></td></tr>
+                    <tr><td><strong>!director [nombre]</strong></td><td>Busca info de un <strong>director</strong> 🎬</td><td><em>!director Tim Burton</em></td></tr>
+                    <tr><td><strong>!tv [nombre]</strong></td><td>Busca una <strong>serie</strong> 📺</td><td><em>!tv Dragon Ball</em></td></tr>
+                    <tr><td><strong>!peli [nombre]</strong></td><td>Busca una <strong>película</strong> 🎥</td><td><em>!peli Star Wars</em></td></tr>
+                    <tr><td><strong>!game [nombre]</strong></td><td>Busca un <strong>videojuego</strong> 🎮</td><td><em>!game Super Mario Bros</em></td></tr>
+                    <tr><td><strong>!peticion</strong></td><td>Accede a la <strong>web de peticiones</strong> 🔗</td><td><a href="https://piravision.github.io/Peticiones/" target="_blank" class="example-button">Ir a Peticiones</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </body>
 </html>
+
+
